@@ -1,0 +1,84 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xml:lang="en-US"
+        mc:Ignorable="d"
+        Title="iBooks" Height="800" Width="1500">
+    <DockPanel Name ="Panel">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Load Book" Click="Load_Click"/>
+                <Separator />
+                <MenuItem Header="_Exit" Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Settings">
+                <MenuItem Header="_Preference" />
+            </MenuItem>
+            <MenuItem Header="_About">
+                <MenuItem Header="_Feedback" />
+                <MenuItem Header="_About Us" />
+            </MenuItem>
+        </Menu>
+        <DockPanel DockPanel.Dock="Left">
+            <StackPanel DockPanel.Dock="Top" Orientation="Vertical" HorizontalAlignment="Center">
+                <Button Name="Load" Content="Load Book" FontWeight ="Bold" Width="100" Height="20" Click="Load_Click" Margin="5"></Button>
+            </StackPanel>
+            <Image DockPanel.Dock ="Top" Name="Image1" Width="150" Height="200"></Image>
+                <TextBlock DockPanel.Dock ="Top" Name="Info" VerticalAlignment="Center"></TextBlock>
+            <ScrollViewer DockPanel.Dock="Top" Height="240" HorizontalAlignment="Stretch" CanContentScroll="True">
+                    <ScrollViewer.Content>
+                        <ListBox Name="Chapters" SelectionChanged="Chapters_SelectionChanged" FontWeight="Bold"></ListBox>
+                    </ScrollViewer.Content>
+                </ScrollViewer>
+                <StackPanel DockPanel.Dock ="Bottom" Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="Font Size" FontWeight ="Bold" HorizontalAlignment="Center"></Label>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <TextBox Name="TextSize" FontWeight="Bold" Width="20" Height="20" KeyDown="TextSize_KeyDown"></TextBox>
+                                <Button Name="TextSize_minus" Content="A-" FontWeight ="Bold" Width="30" Height="30" Click="TextSize_minus_Click"></Button>
+                                <Button Name="TextSize_plus" Content="A+" FontWeight ="Bold" Width="30" Height="30" Click="TextSize_plus_Click"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="10"></StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="Style" FontWeight ="Bold" HorizontalAlignment="Center"></Label>
+                            <StackPanel Orientation="Horizontal">
+                                <ToggleButton Name="Text_Bold" Content="Bold" FontWeight ="Bold" Width="40" Height="30" Click="Text_Bold_Click" IsChecked="true"></ToggleButton>
+                                <ToggleButton Name="EyeCare" Content="Night" FontWeight="Bold" Width="40" Height="30" Click="EyeCare_Click"></ToggleButton>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Width="10"></StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="Scroll" FontWeight ="Bold" HorizontalAlignment="Center"></Label>
+                            <ToggleButton Name="AutoScroll" Content="Disable" FontWeight="Bold" Width="40" Height="30" Click="AutoScroll_Click"></ToggleButton>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock ="Bottom" Orientation="Vertical">
+                        <Label Content="Font Family" FontWeight ="Bold" HorizontalAlignment="Center"></Label>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Name="FontFamily_Hei" Content="黑" FontWeight="Bold" Width="30" Height="30" Click="FontFamily_Hei_Click"></Button>
+                            <Button Name="FontFamily_Song" Content="宋" FontWeight="Bold" Width="30" Height="30" Click="FontFamily_Song_Click"></Button>
+                            <Button Name="FontFamily_Kai" Content="楷" FontWeight="Bold" Width="30" Height="30" Click="FontFamily_Kai_Click"></Button>
+                            <Button Name="FontFamily_Yuan" Content="圆" FontWeight="Bold" Width="30" Height="30" Click="FontFamily_Yuan_Click"></Button>
+                            <Button Name="FontFamily_Li" Content="隶" FontWeight="Bold" Width="30" Height="30" Click="FontFamily_Li_Click"></Button>
+                            <Button Name="FontFamily_YaHei" Content="雅" FontWeight="Bold" Width="30" Height="30" Click="FontFamily_YaHei_Click"></Button>
+                            <Button Name="FontFamily_Deng" Content="等" FontWeight="Bold" Width="30" Height="30" Click="FontFamily_Deng_Click"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+        <DockPanel DockPanel.Dock="Right">
+            <ScrollViewer Name="ScrollChapter" DockPanel.Dock="Right" HorizontalAlignment="Stretch" CanContentScroll="False" VirtualizingPanel.ScrollUnit="Pixel">
+                <ScrollViewer.Content>
+                    <DockPanel>
+                        <TextBlock Name="ChapterContent" FontFamily="SimHei" KeyDown="ChapterContent_KeyDown"></TextBlock>
+                    </DockPanel>
+                </ScrollViewer.Content>
+            </ScrollViewer>
+        </DockPanel>
+    </DockPanel>
+</Window>
